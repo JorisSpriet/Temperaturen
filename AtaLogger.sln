@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerLib", "AtaLoggerLib\AtaLoggerLib.csproj", "{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerData", "AtaLoggerData\AtaLoggerData.csproj", "{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerLibTests", "AtaLoggerLibTests\AtaLoggerLibTests.csproj", "{D972F762-547B-46BE-A379-F40ACF774A7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D972F762-547B-46BE-A379-F40ACF774A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D972F762-547B-46BE-A379-F40ACF774A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D972F762-547B-46BE-A379-F40ACF774A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D972F762-547B-46BE-A379-F40ACF774A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
