@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using log4net.Repository.Hierarchy;
 
 namespace AtaLogger
 {
@@ -14,7 +15,7 @@ namespace AtaLogger
 
 		LoggerDetails GetDetailsFromDevice();
 
-		void GetSamplesFromDevice(SamplesReadingCallback samplesReadingCallback);
+		LoggerSample[] GetSamplesFromDevice(int numberOfSamples);
 
 		void ClearDataOnDevice();
 

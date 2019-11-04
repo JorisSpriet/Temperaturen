@@ -1,0 +1,256 @@
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
+using AtaLogger;
+
+namespace AtaLoggerLibTests
+{
+	[TestFixture]
+	public class TimestampTests
+	{
+		public class TimeStampTestData
+		{
+			public int TimeStamp { get; set; }
+			public string Time { get; set; }
+		}
+
+		public static IEnumerable<TimeStampTestData> TestData()
+		{
+			yield return new TimeStampTestData { TimeStamp = 0x4682d44a, Time = "2017-10-01 13:17:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682d80a, Time = "2017-10-01 13:32:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682dbca, Time = "2017-10-01 13:47:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682e08a, Time = "2017-10-01 14:02:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682e44a, Time = "2017-10-01 14:17:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682e80a, Time = "2017-10-01 14:32:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682ebca, Time = "2017-10-01 14:47:10" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682f08b, Time = "2017-10-01 15:02:11" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682f44b, Time = "2017-10-01 15:17:11" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682f80b, Time = "2017-10-01 15:32:11" };
+			yield return new TimeStampTestData { TimeStamp = 0x4682fbcb, Time = "2017-10-01 15:47:11" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683008b, Time = "2017-10-01 16:02:11" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683044b, Time = "2017-10-01 16:17:11" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683080c, Time = "2017-10-01 16:32:12" };
+			yield return new TimeStampTestData { TimeStamp = 0x46830bcc, Time = "2017-10-01 16:47:12" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683108c, Time = "2017-10-01 17:02:12" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683144c, Time = "2017-10-01 17:17:12" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683180c, Time = "2017-10-01 17:32:12" };
+			yield return new TimeStampTestData { TimeStamp = 0x46831bcc, Time = "2017-10-01 17:47:12" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683208d, Time = "2017-10-01 18:02:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683244d, Time = "2017-10-01 18:17:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683280d, Time = "2017-10-01 18:32:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x46832bcd, Time = "2017-10-01 18:47:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683308d, Time = "2017-10-01 19:02:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683344d, Time = "2017-10-01 19:17:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683380d, Time = "2017-10-01 19:32:13" };
+			yield return new TimeStampTestData { TimeStamp = 0x46833bce, Time = "2017-10-01 19:47:14" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683408e, Time = "2017-10-01 20:02:14" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683444e, Time = "2017-10-01 20:17:14" };
+			yield return new TimeStampTestData { TimeStamp = 0x4683480e, Time = "2017-10-01 20:32:14" };
+			yield return new TimeStampTestData { TimeStamp = 0x46840811, Time = "2017-10-02 00:32:17" };
+			yield return new TimeStampTestData { TimeStamp = 0x46840bd1, Time = "2017-10-02 00:47:17" };
+			yield return new TimeStampTestData { TimeStamp = 0x46841091, Time = "2017-10-02 01:02:17" };
+			yield return new TimeStampTestData { TimeStamp = 0x46841451, Time = "2017-10-02 01:17:17" };
+			yield return new TimeStampTestData { TimeStamp = 0x46841811, Time = "2017-10-02 01:32:17" };
+			yield return new TimeStampTestData { TimeStamp = 0x46841bd1, Time = "2017-10-02 01:47:17" };
+			yield return new TimeStampTestData { TimeStamp = 0x46842092, Time = "2017-10-02 02:02:18" };
+			yield return new TimeStampTestData { TimeStamp = 0x46842452, Time = "2017-10-02 02:17:18" };
+			yield return new TimeStampTestData { TimeStamp = 0x46842812, Time = "2017-10-02 02:32:18" };
+			yield return new TimeStampTestData { TimeStamp = 0x46842bd2, Time = "2017-10-02 02:47:18" };
+			yield return new TimeStampTestData { TimeStamp = 0x46843092, Time = "2017-10-02 03:02:18" };
+			yield return new TimeStampTestData { TimeStamp = 0x46843452, Time = "2017-10-02 03:17:18" };
+			yield return new TimeStampTestData { TimeStamp = 0x46843813, Time = "2017-10-02 03:32:19" };
+			yield return new TimeStampTestData { TimeStamp = 0x46843bd3, Time = "2017-10-02 03:47:19" };
+			yield return new TimeStampTestData { TimeStamp = 0x46844093, Time = "2017-10-02 04:02:19" };
+			yield return new TimeStampTestData { TimeStamp = 0x46844453, Time = "2017-10-02 04:17:19" };
+			yield return new TimeStampTestData { TimeStamp = 0x46844813, Time = "2017-10-02 04:32:19" };
+			yield return new TimeStampTestData { TimeStamp = 0x46844bd3, Time = "2017-10-02 04:47:19" };
+			yield return new TimeStampTestData { TimeStamp = 0x46845094, Time = "2017-10-02 05:02:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46845454, Time = "2017-10-02 05:17:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46845814, Time = "2017-10-02 05:32:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46845bd4, Time = "2017-10-02 05:47:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46846094, Time = "2017-10-02 06:02:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46846454, Time = "2017-10-02 06:17:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46846814, Time = "2017-10-02 06:32:20" };
+			yield return new TimeStampTestData { TimeStamp = 0x46846bd5, Time = "2017-10-02 06:47:21" };
+			yield return new TimeStampTestData { TimeStamp = 0x46847095, Time = "2017-10-02 07:02:21" };
+			yield return new TimeStampTestData { TimeStamp = 0x46847455, Time = "2017-10-02 07:17:21" };
+			yield return new TimeStampTestData { TimeStamp = 0x46847815, Time = "2017-10-02 07:32:21" };
+			yield return new TimeStampTestData { TimeStamp = 0x46847bd5, Time = "2017-10-02 07:47:21" };
+			yield return new TimeStampTestData { TimeStamp = 0x46848095, Time = "2017-10-02 08:02:21" };
+			yield return new TimeStampTestData { TimeStamp = 0x46848456, Time = "2017-10-02 08:17:22" };
+			yield return new TimeStampTestData { TimeStamp = 0x46848816, Time = "2017-10-02 08:32:22" };
+			yield return new TimeStampTestData { TimeStamp = 0x46848bd6, Time = "2017-10-02 08:47:22" };
+			yield return new TimeStampTestData { TimeStamp = 0x46849096, Time = "2017-10-02 09:02:22" };
+			yield return new TimeStampTestData { TimeStamp = 0x46849456, Time = "2017-10-02 09:17:22" };
+			yield return new TimeStampTestData { TimeStamp = 0x46849816, Time = "2017-10-02 09:32:22" };
+			yield return new TimeStampTestData { TimeStamp = 0x46849bd7, Time = "2017-10-02 09:47:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684a097, Time = "2017-10-02 10:02:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684a457, Time = "2017-10-02 10:17:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684a817, Time = "2017-10-02 10:32:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684abd7, Time = "2017-10-02 10:47:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684b097, Time = "2017-10-02 11:02:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684b457, Time = "2017-10-02 11:17:23" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684b818, Time = "2017-10-02 11:32:24" };
+
+			yield return new TimeStampTestData { TimeStamp = 0x4684bbd8, Time = "2017-10-02 11:47:24" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684c098, Time = "2017-10-02 12:02:24" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684c458, Time = "2017-10-02 12:17:24" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684c818, Time = "2017-10-02 12:32:24" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684cbd8, Time = "2017-10-02 12:47:24" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684d099, Time = "2017-10-02 13:02:25" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684d459, Time = "2017-10-02 13:17:25" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684d819, Time = "2017-10-02 13:32:25" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684dbd9, Time = "2017-10-02 13:47:25" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684e099, Time = "2017-10-02 14:02:25" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684e459, Time = "2017-10-02 14:17:25" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684e81a, Time = "2017-10-02 14:32:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684ebda, Time = "2017-10-02 14:47:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684f09a, Time = "2017-10-02 15:02:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684f45a, Time = "2017-10-02 15:17:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684f81a, Time = "2017-10-02 15:32:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4684fbda, Time = "2017-10-02 15:47:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685009a, Time = "2017-10-02 16:02:26" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685045b, Time = "2017-10-02 16:17:27" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685081b, Time = "2017-10-02 16:32:27" };
+			yield return new TimeStampTestData { TimeStamp = 0x46850bdb, Time = "2017-10-02 16:47:27" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685109b, Time = "2017-10-02 17:02:27" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685145b, Time = "2017-10-02 17:17:27" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685181b, Time = "2017-10-02 17:32:27" };
+			yield return new TimeStampTestData { TimeStamp = 0x46851bdc, Time = "2017-10-02 17:47:28" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685209c, Time = "2017-10-02 18:02:28" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685245c, Time = "2017-10-02 18:17:28" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685281c, Time = "2017-10-02 18:32:28" };
+			yield return new TimeStampTestData { TimeStamp = 0x46852bdc, Time = "2017-10-02 18:47:28" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685309c, Time = "2017-10-02 19:02:28" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685345d, Time = "2017-10-02 19:17:29" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685381d, Time = "2017-10-02 19:32:29" };
+			yield return new TimeStampTestData { TimeStamp = 0x46853bdd, Time = "2017-10-02 19:47:29" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685409d, Time = "2017-10-02 20:02:29" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685445d, Time = "2017-10-02 20:17:29" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685481d, Time = "2017-10-02 20:32:29" };
+			yield return new TimeStampTestData { TimeStamp = 0x46854bde, Time = "2017-10-02 20:47:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685509e, Time = "2017-10-02 21:02:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685545e, Time = "2017-10-02 21:17:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685581e, Time = "2017-10-02 21:32:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x46855bde, Time = "2017-10-02 21:47:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685609e, Time = "2017-10-02 22:02:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685645e, Time = "2017-10-02 22:17:30" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685681f, Time = "2017-10-02 22:32:31" };
+			yield return new TimeStampTestData { TimeStamp = 0x46856bdf, Time = "2017-10-02 22:47:31" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685709f, Time = "2017-10-02 23:02:31" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685745f, Time = "2017-10-02 23:17:31" };
+			yield return new TimeStampTestData { TimeStamp = 0x4685781f, Time = "2017-10-02 23:32:31" };
+			yield return new TimeStampTestData { TimeStamp = 0x46857bdf, Time = "2017-10-02 23:47:31" };
+			yield return new TimeStampTestData { TimeStamp = 0x468600a0, Time = "2017-10-03 00:02:32" };
+			yield return new TimeStampTestData { TimeStamp = 0x46860460, Time = "2017-10-03 00:17:32" };
+			yield return new TimeStampTestData { TimeStamp = 0x46860820, Time = "2017-10-03 00:32:32" };
+			yield return new TimeStampTestData { TimeStamp = 0x46860be0, Time = "2017-10-03 00:47:32" };
+			yield return new TimeStampTestData { TimeStamp = 0x468610a0, Time = "2017-10-03 01:02:32" };
+			yield return new TimeStampTestData { TimeStamp = 0x46861460, Time = "2017-10-03 01:17:32" };
+			yield return new TimeStampTestData { TimeStamp = 0x46861821, Time = "2017-10-03 01:32:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x46861be1, Time = "2017-10-03 01:47:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x468620a1, Time = "2017-10-03 02:02:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x46862461, Time = "2017-10-03 02:17:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x46862821, Time = "2017-10-03 02:32:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x46862be1, Time = "2017-10-03 02:47:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x468630a1, Time = "2017-10-03 03:02:33" };
+			yield return new TimeStampTestData { TimeStamp = 0x46863462, Time = "2017-10-03 03:17:34" };
+			yield return new TimeStampTestData { TimeStamp = 0x46863822, Time = "2017-10-03 03:32:34" };
+			yield return new TimeStampTestData { TimeStamp = 0x46863be2, Time = "2017-10-03 03:47:34" };
+			yield return new TimeStampTestData { TimeStamp = 0x468640a2, Time = "2017-10-03 04:02:34" };
+			yield return new TimeStampTestData { TimeStamp = 0x46864462, Time = "2017-10-03 04:17:34" };
+			yield return new TimeStampTestData { TimeStamp = 0x46864822, Time = "2017-10-03 04:32:34" };
+			yield return new TimeStampTestData { TimeStamp = 0x46864be3, Time = "2017-10-03 04:47:35" };
+			yield return new TimeStampTestData { TimeStamp = 0x468650a3, Time = "2017-10-03 05:02:35" };
+			yield return new TimeStampTestData { TimeStamp = 0x46865463, Time = "2017-10-03 05:17:35" };
+			yield return new TimeStampTestData { TimeStamp = 0x46865823, Time = "2017-10-03 05:32:35" };
+			yield return new TimeStampTestData { TimeStamp = 0x46865be3, Time = "2017-10-03 05:47:35" };
+			yield return new TimeStampTestData { TimeStamp = 0x468660a3, Time = "2017-10-03 06:02:35" };
+			yield return new TimeStampTestData { TimeStamp = 0x46866464, Time = "2017-10-03 06:17:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x46866824, Time = "2017-10-03 06:32:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x46866be4, Time = "2017-10-03 06:47:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x468670a4, Time = "2017-10-03 07:02:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x46867464, Time = "2017-10-03 07:17:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x46867824, Time = "2017-10-03 07:32:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x46867be4, Time = "2017-10-03 07:47:36" };
+			yield return new TimeStampTestData { TimeStamp = 0x468680a5, Time = "2017-10-03 08:02:37" };
+			yield return new TimeStampTestData { TimeStamp = 0x46868465, Time = "2017-10-03 08:17:37" };
+			yield return new TimeStampTestData { TimeStamp = 0x46868825, Time = "2017-10-03 08:32:37" };
+			yield return new TimeStampTestData { TimeStamp = 0x46868be5, Time = "2017-10-03 08:47:37" };
+			yield return new TimeStampTestData { TimeStamp = 0x468690a5, Time = "2017-10-03 09:02:37" };
+			yield return new TimeStampTestData { TimeStamp = 0x46869465, Time = "2017-10-03 09:17:37" };
+			yield return new TimeStampTestData { TimeStamp = 0x46869826, Time = "2017-10-03 09:32:38" };
+			yield return new TimeStampTestData { TimeStamp = 0x46869be6, Time = "2017-10-03 09:47:38" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686a0a6, Time = "2017-10-03 10:02:38" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686a466, Time = "2017-10-03 10:17:38" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686a826, Time = "2017-10-03 10:32:38" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686abe6, Time = "2017-10-03 10:47:38" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686b0a7, Time = "2017-10-03 11:02:39" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686b467, Time = "2017-10-03 11:17:39" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686b827, Time = "2017-10-03 11:32:39" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686bbe7, Time = "2017-10-03 11:47:39" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686c0a7, Time = "2017-10-03 12:02:39" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686c467, Time = "2017-10-03 12:17:39" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686c828, Time = "2017-10-03 12:32:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686cbe8, Time = "2017-10-03 12:47:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686d0a8, Time = "2017-10-03 13:02:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686d468, Time = "2017-10-03 13:17:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686d828, Time = "2017-10-03 13:32:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686dbe8, Time = "2017-10-03 13:47:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686e0a8, Time = "2017-10-03 14:02:40" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686e469, Time = "2017-10-03 14:17:41" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686e829, Time = "2017-10-03 14:32:41" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686ebe9, Time = "2017-10-03 14:47:41" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686f0a9, Time = "2017-10-03 15:02:41" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686f469, Time = "2017-10-03 15:17:41" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686f829, Time = "2017-10-03 15:32:41" };
+			yield return new TimeStampTestData { TimeStamp = 0x4686fbea, Time = "2017-10-03 15:47:42" };
+			yield return new TimeStampTestData { TimeStamp = 0x468700aa, Time = "2017-10-03 16:02:42" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687046a, Time = "2017-10-03 16:17:42" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687082a, Time = "2017-10-03 16:32:42" };
+			yield return new TimeStampTestData { TimeStamp = 0x46870bea, Time = "2017-10-03 16:47:42" };
+			yield return new TimeStampTestData { TimeStamp = 0x468710aa, Time = "2017-10-03 17:02:42" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687146b, Time = "2017-10-03 17:17:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687182b, Time = "2017-10-03 17:32:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x46871beb, Time = "2017-10-03 17:47:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x468720ab, Time = "2017-10-03 18:02:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687246b, Time = "2017-10-03 18:17:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687282b, Time = "2017-10-03 18:32:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x46872beb, Time = "2017-10-03 18:47:43" };
+			yield return new TimeStampTestData { TimeStamp = 0x468730ac, Time = "2017-10-03 19:02:44" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687346c, Time = "2017-10-03 19:17:44" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687382c, Time = "2017-10-03 19:32:44" };
+			yield return new TimeStampTestData { TimeStamp = 0x46873bec, Time = "2017-10-03 19:47:44" };
+			yield return new TimeStampTestData { TimeStamp = 0x468740ac, Time = "2017-10-03 20:02:44" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687446c, Time = "2017-10-03 20:17:44" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687482d, Time = "2017-10-03 20:32:45" };
+			yield return new TimeStampTestData { TimeStamp = 0x46874bed, Time = "2017-10-03 20:47:45" };
+			yield return new TimeStampTestData { TimeStamp = 0x468750ad, Time = "2017-10-03 21:02:45" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687546d, Time = "2017-10-03 21:17:45" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687582d, Time = "2017-10-03 21:32:45" };
+			yield return new TimeStampTestData { TimeStamp = 0x46875bed, Time = "2017-10-03 21:47:45" };
+			yield return new TimeStampTestData { TimeStamp = 0x468760ae, Time = "2017-10-03 22:02:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687646e, Time = "2017-10-03 22:17:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687682e, Time = "2017-10-03 22:32:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x46876bee, Time = "2017-10-03 22:47:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x468770ae, Time = "2017-10-03 23:02:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687746e, Time = "2017-10-03 23:17:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x4687782e, Time = "2017-10-03 23:32:46" };
+			yield return new TimeStampTestData { TimeStamp = 0x46877bef, Time = "2017-10-03 23:47:47" };
+			yield return new TimeStampTestData { TimeStamp = 0x468800af, Time = "2017-10-04 00:02:47" };
+			yield return new TimeStampTestData { TimeStamp = 0x4688046f, Time = "2017-10-04 00:17:47" };
+			yield return new TimeStampTestData { TimeStamp = 0x4688082f, Time = "2017-10-04 00:32:47" };
+			yield return new TimeStampTestData { TimeStamp = 0x46880bef, Time = "2017-10-04 00:47:47" };
+			yield return new TimeStampTestData { TimeStamp = 0x468810af, Time = "2017-10-04 01:02:47" };
+		}
+
+
+		[Test, Combinatorial]
+		public void BulkTest([ValueSource("TestData")] TimeStampTestData data)
+		{
+			var dt = data.TimeStamp.ConvertToDateTime();
+			var ts = DateTime.Parse(data.Time);
+			Assert.AreEqual(ts, dt);
+		}
+	}
+}

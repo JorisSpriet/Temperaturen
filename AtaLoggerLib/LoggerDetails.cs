@@ -15,6 +15,8 @@ namespace AtaLogger
 		public string Description { get; set; }
 
 		public string Info { get; set; }
+
+		public int NumberOfSamples { get; set; }
 	}
 
 }
