@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AtaLoggerLib\AtaLoggerLib.csproj">
+    <ProjectReference Include="..\AtalLoggerLib\AtalLoggerLib.csproj">
       <Project>{3432cf62-bfb7-48dc-af52-8b7f8f76bf25}</Project>
       <Name>AtaLoggerLib</Name>
     </ProjectReference>

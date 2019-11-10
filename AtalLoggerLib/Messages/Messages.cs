@@ -54,6 +54,8 @@ namespace AtaLogger
 
 		public static byte[] AnswerGetDataCommand = { 0x58, 0x02 };
 
+		public static byte[] ClearDataCommand = { 0x59, 0x23};
+
 		public static byte[] GetSerialNumberMessage()
 		{
 			var result = GetTemplate();
@@ -62,9 +64,9 @@ namespace AtaLogger
 		}
 
 		//TODO FIXUP Message.ClearDataMessage()
-		public static byte[] ClearDataMessage()
+		public static byte[] ClearDataMessage(string serialNumber)
 		{
-			return null;
+			return GetCommandForSerialNumber(serialNumber, ClearDataCommand);
 		}
 		private static byte[] GetCommandForSerialNumber(string serialNumber, byte[] command)
 		{

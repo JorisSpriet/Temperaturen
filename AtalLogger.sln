@@ -2,19 +2,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerLib", "AtaLoggerLib\AtaLoggerLib.csproj", "{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerLib", "AtalLoggerLib\AtalLoggerLib.csproj", "{3432CF62-BFB7-48DC-AF52-8B7F8F76BF25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerData", "AtaLoggerData\AtaLoggerData.csproj", "{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerData", "AtalLoggerData\AtalLoggerData.csproj", "{B6AD3B3B-4EA1-4F81-87CD-F49C86DA0C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerLibTests", "AtaLoggerLibTests\AtaLoggerLibTests.csproj", "{D972F762-547B-46BE-A379-F40ACF774A7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerLibTests", "AtalLoggerLibTests\AtalLoggerLibTests.csproj", "{D972F762-547B-46BE-A379-F40ACF774A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerStoreDataApp", "AtaLoggerStoreDataApp\AtaLoggerStoreDataApp.csproj", "{83CECBA1-B0D9-49DD-A247-A882B9EAA882}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerStoreDataApp", "AtalLoggerStoreDataApp\AtalLoggerStoreDataApp.csproj", "{83CECBA1-B0D9-49DD-A247-A882B9EAA882}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerChartApp", "AtaLoggerChartApp\AtaLoggerChartApp.csproj", "{D6BCA92C-EC32-4552-A0EC-ABEFECB66164}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerChartApp", "AtalLoggerChartApp\AtalLoggerChartApp.csproj", "{D6BCA92C-EC32-4552-A0EC-ABEFECB66164}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerDataTests", "AtaLoggerDataTests\AtaLoggerDataTests.csproj", "{2B397696-5B9D-40AD-AE64-2C43E4E52F3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerDataTests", "AtalLoggerDataTests\AtalLoggerDataTests.csproj", "{2B397696-5B9D-40AD-AE64-2C43E4E52F3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtaLoggerDump", "AtaLoggerDump\AtaLoggerDump.csproj", "{F4A3FC6D-CB76-42B2-814C-43AD113886EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtalLoggerDump", "AtalLoggerDump\AtalLoggerDump.csproj", "{F4A3FC6D-CB76-42B2-814C-43AD113886EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
