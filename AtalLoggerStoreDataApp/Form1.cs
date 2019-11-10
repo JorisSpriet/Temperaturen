@@ -41,5 +41,10 @@ namespace AtaLoggerStoreDataApp
 		{
 
 		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			AtalLoggerDataRetrievalCycle.Instance.Start(this);
+		}
 	}
 }
