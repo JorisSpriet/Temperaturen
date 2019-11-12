@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -47,7 +47,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AtalLoggerLib\AtalLoggerLib.csproj">
       <Project>{3432cf62-bfb7-48dc-af52-8b7f8f76bf25}</Project>
-      <Name>AtaLoggerLib</Name>
+      <Name>AtalLoggerLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,14 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{83CECBA1-B0D9-49DD-A247-A882B9EAA882}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AtaLoggerStoreDataApp</RootNamespace>
-    <AssemblyName>AtaLoggerStoreDataApp</AssemblyName>
+    <RootNamespace>AtalLoggerStoreDataApp</RootNamespace>
+    <AssemblyName>AtalLoggerStoreDataApp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtalLoggerDataRetrievalCycleState.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

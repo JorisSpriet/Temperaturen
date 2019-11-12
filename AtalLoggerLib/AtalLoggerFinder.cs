@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading;
 using log4net;
 
-namespace AtaLogger
+namespace AtalLogger
 {
-	public class AtaLoggerFinder
+	public class AtalLoggerFinder
 	{
-		public static ILog logger = LogManager.GetLogger(typeof(AtaLoggerFinder));
+		public static ILog logger = LogManager.GetLogger(typeof(AtalLoggerFinder));
 
-		public AtaLogger FindLoggerPort(string preferredPort)
+		public AtalLogger FindLoggerPort(string preferredPort)
 		{
 			var currentPortNames = SerialPort.GetPortNames();
 			if (currentPortNames.Contains(preferredPort))
@@ -30,7 +30,7 @@ namespace AtaLogger
 			return null;
 		}
 
-		private AtaLogger LoggerFoundOnPort(string port)
+		private AtalLogger LoggerFoundOnPort(string port)
 		{
 
 			var serialPort = new SerialPort(port, 38400,Parity.None,8,StopBits.One);
@@ -73,7 +73,7 @@ namespace AtaLogger
 						var a = Utils.Map<AnswerGetSerialNumberMessage>(answer);
 						if (a.IsValid())
 						{
-							return new AtaLogger(a.GetSerialNumber(), serialPort);
+							return new AtalLogger(a.GetSerialNumber(), serialPort);
 						}
 					}
 					catch

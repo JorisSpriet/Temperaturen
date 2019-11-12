@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AtaLoggerChartApp.Properties
+namespace AtalLoggerChartApp.Properties
 {
 
 

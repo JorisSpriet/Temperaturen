@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace AtaLogger
+namespace AtalLogger
 {
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public class AnswerDownloadDataPacket

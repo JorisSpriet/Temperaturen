@@ -1,9 +1,10 @@
 ﻿using System;
-namespace AtaLoggerData
+namespace AtalLoggerData
 {
     public class Sample
     {
-        public int ID { get; set; }
+		//combination serial number + timestamp
+        public string ID { get; set; }
 
 		public int DataRetrieval { get; set; }
 

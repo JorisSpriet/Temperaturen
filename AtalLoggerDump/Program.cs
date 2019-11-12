@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using AtaLogger;
+using AtalLogger;
 
-namespace AtaLoggerDump
+namespace AtalLoggerDump
 {
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			AtaLogger.AtaLogger logger = null;
-			AtaLoggerFinder finder = new AtaLoggerFinder();
+			AtalLogger.AtalLogger logger = null;
+			AtalLoggerFinder finder = new AtalLoggerFinder();
 			
 			Console.WriteLine("Detecting logger for 10s.  Press Ctrl-C to interrupt.");
 
@@ -34,7 +31,7 @@ namespace AtaLoggerDump
 			Console.WriteLine("Serial number     : {0}",detail.SerialNumber);
 			Console.WriteLine("Number of samples : {0}", detail.NumberOfSamples);
 
-			var data = logger.GetSamplesFromDevice(detail.NumberOfSamples);
+			var data = logger.GetSamplesFromDevice(detail.NumberOfSamples,null);
 
 			foreach (var d in data)
 			{

@@ -2,30 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
-using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using log4net;
 
-namespace AtaLogger
+namespace AtalLogger
 {
-	public class AtaLogger : IDisposable, IAtaLogger
+	public class AtalLogger : IDisposable, IAtalLogger
 	{
-		private static ILog logger = LogManager.GetLogger(typeof(AtaLogger));
+		private static ILog logger = LogManager.GetLogger(typeof(AtalLogger));
 
 		private readonly SerialPort serialPort;
 
 		public string SerialNumber { get; private set; }
 
-		public string SerialPortName
-		{
-			get { return serialPort?.PortName ?? "-"; }
-		}
+		public string SerialPortName => serialPort?.PortName ?? "-";
 
-		public LoggerDetails GetDetailsFromDevice()
+		public AtalLoggerDetails GetDetailsFromDevice()
 		{
 			serialPort.Open();
 			var getinfomessage = Messages.GetDataInfo1Message(SerialNumber);
@@ -51,7 +45,7 @@ namespace AtaLogger
 			if (!details1.IsValid())
 				throw new Exception("Received invalid details from device.");
 
-			var result = new LoggerDetails
+			var result = new AtalLoggerDetails
 			{
 				Description = Encoding.ASCII.GetString(details1.Description),
 				SerialNumber = Encoding.ASCII.GetString(details1.SerialNumber),
@@ -65,19 +59,25 @@ namespace AtaLogger
 			return result;
 		}
 
-		public LoggerSample[] GetSamplesFromDevice(int numberOfSamples)
+		public AtalLoggerSample[] GetSamplesFromDevice(int numberOfSamples, Action<int> Callback, bool dump=false)
 		{
 			var result = new List<LoggerSamplePacket>();
 			
-			var fs = File.OpenWrite(".\\dump.bin");
-
+			FileStream fs=null;
+			if (dump)
+			{
+				var dir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Temperaturen";
+				if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+				var fn = Path.Combine(dir, DateTime.Now.ToString("o").Replace(":", "") + ".dump.bin");
+				fs = File.OpenWrite(fn);
+			}
 
 			serialPort.Open();
 			serialPort.Write(Messages.GetDataMessage(SerialNumber));
 			Thread.Sleep(500);
 
 			if (numberOfSamples == 0)
-				return new LoggerSample[0];
+				return new AtalLoggerSample[0];
 
 			int numberOfPackets = (numberOfSamples / 15) + (numberOfSamples % 15 != 0 ? 1 : 0);
 
@@ -97,8 +97,7 @@ namespace AtaLogger
 					Thread.Sleep(100);
 					continue;
 				}
-
-				fs.Write(buffer,0,offset);
+				fs?.Write(buffer,0,offset);
 
 				var addlp = Utils.Map<AnswerDownloadDataPacket>(buffer);
 				if (addlp.NumberOfPackets != numberOfPackets)
@@ -111,21 +110,22 @@ namespace AtaLogger
 				var extraBytesToRead = addlp.NumberOfSamples * 6 + 5;
 				var extraBytesRead = serialPort.Read(buffer, 0, extraBytesToRead);
 
-				fs.Write(buffer,0,extraBytesRead);
+				fs?.Write(buffer,0,extraBytesRead);
 
 				var samplebytes = new byte[extraBytesToRead - 5];
 				Array.Copy(buffer, 0, samplebytes, 0, extraBytesToRead - 5);
 				var samples = Utils.MapArray<LoggerSamplePacket>(samplebytes, addlp.NumberOfSamples);
 				result.AddRange(samples);
 				lastPacketProcessed = addlp.NumberOfPackets == addlp.PacketNumber;
+				Callback?.Invoke(addlp.NumberOfSamples);
 				offset = 0;
 
 			} while (!lastPacketProcessed);
 
 			serialPort.Close();
-			fs.Close();
+			fs?.Close();
 
-			var data = new LoggerSample[numberOfSamples];
+			var data = new AtalLoggerSample[numberOfSamples];
 			for (int i = 0; i < numberOfSamples; i++)
 			{
 				data[i] = result[i].Map();
@@ -179,7 +179,7 @@ namespace AtaLogger
 
 		#endregion
 
-		public AtaLogger(string serialNumber, SerialPort port)
+		public AtalLogger(string serialNumber, SerialPort port)
 		{
 			SerialNumber = serialNumber;
 			serialPort = port;

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace AtaLogger
+namespace AtalLogger
 {
-	public class LoggerSample
+	public class AtalLoggerSample
 	{
 		public long ID { get; set; }
 

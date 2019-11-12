@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -51,7 +52,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AtalLoggerLib\AtalLoggerLib.csproj">
       <Project>{3432cf62-bfb7-48dc-af52-8b7f8f76bf25}</Project>
-      <Name>AtaLoggerLib</Name>
+      <Name>AtalLoggerLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

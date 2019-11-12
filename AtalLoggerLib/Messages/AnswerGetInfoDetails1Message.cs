@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace AtaLogger
+namespace AtalLogger
 {
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct AnswerGetInfoDetails1Message

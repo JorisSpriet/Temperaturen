@@ -20,6 +20,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -37,12 +38,11 @@
   <ItemGroup>
     <Compile Include="Messages\AnswerDownloadDataPacket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IAtaLogger.cs" />
-    <Compile Include="AtaLogger.cs" />
-    <Compile Include="LoggerDetails.cs" />
-    <Compile Include="AtaLoggerFinder.cs" />
-    <Compile Include="AtaLoggerProperties.cs" />
-    <Compile Include="LoggerSample.cs" />
+    <Compile Include="IAtalLogger.cs" />
+    <Compile Include="AtalLogger.cs" />
+    <Compile Include="AtalLoggerDetails.cs" />
+    <Compile Include="AtalLoggerFinder.cs" />
+    <Compile Include="AtalLoggerSample.cs" />
     <Compile Include="SerialPortExtensions.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Messages\AnswerGetInfoDetails1Message.cs" />

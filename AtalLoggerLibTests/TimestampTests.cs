@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using AtaLogger;
+using AtalLogger;
 
-namespace AtaLoggerLibTests
+namespace AtalLoggerLibTests
 {
 	[TestFixture]
 	public class TimestampTests

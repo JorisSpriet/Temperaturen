@@ -1,8 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using AtaLogger;
+using AtalLogger;
 
-namespace AtaLogger.Tests
+namespace AtalLogger.Tests
 {
 	[TestFixture]
 	public class MappingTests

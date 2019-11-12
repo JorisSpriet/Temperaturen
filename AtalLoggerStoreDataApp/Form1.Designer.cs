@@ -1,4 +1,4 @@
-﻿namespace AtaLoggerStoreDataApp
+﻿namespace AtalLoggerStoreDataApp
 {
 	partial class Form1
 	{
@@ -44,7 +44,7 @@
 			// 
 			// pictureBox2
 			// 
-			this.pictureBox2.Image = global::AtaLoggerStoreDataApp.Properties.Resources.Z230USBport;
+			this.pictureBox2.Image = global::AtalLoggerStoreDataApp.Properties.Resources.Z230USBport;
 			this.pictureBox2.Location = new System.Drawing.Point(543, 12);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(255, 463);
@@ -54,7 +54,7 @@
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Image = global::AtaLoggerStoreDataApp.Properties.Resources.dl_usb_t;
+			this.pictureBox1.Image = global::AtalLoggerStoreDataApp.Properties.Resources.dl_usb_t;
 			this.pictureBox1.Location = new System.Drawing.Point(12, 12);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(377, 94);

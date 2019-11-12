@@ -1,4 +1,4 @@
-﻿namespace AtaLoggerChartApp
+﻿namespace AtalLoggerChartApp
 {
 	partial class Form1
 	{

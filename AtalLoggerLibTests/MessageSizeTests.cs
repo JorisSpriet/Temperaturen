@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AtaLogger.Tests
+namespace AtalLogger.Tests
 {
     public class MessageSizeTests
     {

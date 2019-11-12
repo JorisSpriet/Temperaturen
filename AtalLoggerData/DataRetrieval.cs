@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AtaLoggerData
+namespace AtalLoggerData
 {
     public class DataRetrieval
     {

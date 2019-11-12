@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace AtaLogger
+namespace AtalLogger
 {
 	public static class Utils
 	{
@@ -63,9 +63,9 @@ namespace AtaLogger
 			return new DateTime(2000+(int)year,(int)month,(int)day,h,mm,sec);
 		}
 
-		public static LoggerSample Map(this LoggerSamplePacket lsp)
+		public static AtalLoggerSample Map(this LoggerSamplePacket lsp)
 		{
-			return new LoggerSample
+			return new AtalLoggerSample
 			{
 				TimeStamp = lsp.TimeStamp.ConvertToDateTime(),
 				Temperature = Convert.ToDecimal(lsp.Temperature) / 10M

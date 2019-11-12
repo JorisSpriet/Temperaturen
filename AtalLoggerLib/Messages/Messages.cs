@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace AtaLogger
+namespace AtalLogger
 {
 	public static class Messages
 	{
